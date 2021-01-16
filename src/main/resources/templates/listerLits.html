@@ -19,8 +19,8 @@
 		<tr th:each="l : ${listeLits}">
 			<td th:text = ${l.litId}></td>
 			<td th:text = ${l.etat}></td>
-			<td th:text = ${p.chambre}></td>
-			<td th:text = ${l.typeLit}></td>
+			<td th:text = ${l.chambre.departement}></td>
+			<td th:text = ${l.typeLit.libelle}></td>
 		</tr>
 	</table>
 </body>

@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Patient extends Personne{
 	private String maladie;
+	private Boolean etat_patient;
 	
 	//relation entre patient et lit
 	@OneToMany(mappedBy = "patient")

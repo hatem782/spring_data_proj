@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Affecter page</title>
+</head>
+<body>
+	<h1>Patients</h1>
+	<table>
+		<tr>
+			<th>CIN</th>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>Numero du tel</th>
+			<th>Email</th>
+			<th>Maladie</th>
+			<th>etat</th>
+		</tr>
+		<tr th:each="p : ${listePatients2}">
+			<td th:text = ${p.cin}></td>
+			<td th:text = ${p.nom}></td>
+			<td th:text = ${p.prenom}></td>
+			<td th:text = ${p.tel}></td>
+			<td th:text = ${p.email}></td>
+			<td th:text = ${p.maladie}></td>
+			<td th:text = "${p.etat_patient} ? 'Malade' : 'Valide'" ></td>
+		</tr>
+	</table>
+		<h1>Lits</h1>
+	<table>
+		<tr>
+			<th>Num</th>
+			<th>Chambre</th>
+			<th>type</th>
+			<th>etat</th>
+			
+		</tr>
+		<tr th:each="l : ${listeLits2}">
+			<td th:text = ${l.litId}></td>
+			<td th:text = ${l.chambre.departement}></td>
+			<td th:text = ${l.typeLit.libelle}></td>
+			<td th:text = "${l.etat} ? 'libre' : 'attache' "></td>
+		</tr>
+	</table>
+	<h1>Affecter </h1>
+	<form action="/affecter" method="Post">
+		<input type="number" name="id_Pat" placeholder="identificateur de Patient">
+		<input type="number" name="id_lit" placeholder="identificateur de lit">
+		<input type="submit" name="affecter" value="affecter" >
+	</form>
+	<h3 th:text="${message}"></h3>
+</body>
+</html>

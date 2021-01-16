@@ -46,4 +46,12 @@ public class Lit {
 	@OneToMany(mappedBy = "lit")
 	Set<PatientLit> patientsLits = new HashSet<PatientLit>();
 	
+	public boolean Get_etat() {
+		return this.etat;
+	}
+	
+	public void Set_etat(boolean etat) {
+		this.etat=etat;
+	}
+	
 }

@@ -23,5 +23,7 @@ public class PatientController {
 		return "listerPatients.html";
 	}
 	
+	
+	
 
 }

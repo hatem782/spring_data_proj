@@ -16,6 +16,7 @@
 			<th>Numero du tel</th>
 			<th>Email</th>
 			<th>Maladie</th>
+			<th>Etat de patient</th>
 		</tr>
 		<tr th:each="p : ${listePatients}">
 			<td th:text = ${p.cin}></td>
@@ -23,7 +24,8 @@
 			<td th:text = ${p.prenom}></td>
 			<td th:text = ${p.tel}></td>
 			<td th:text = ${p.email}></td>
-			<td th:text = ${p.maladie}></td>	
+			<td th:text = ${p.maladie}></td>
+			<td th:text = "${p.etat_patient} ? 'Malade' : 'Valide'" ></td>	
 		</tr>
 	</table>
 </body>

@@ -1,12 +1,10 @@
 package com.example.demo.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,21 +18,36 @@ import lombok.NoArgsConstructor;
 //jpa
 @Entity
 
-@IdClass(CleEtrPatientLit.class)
+
 public class PatientLit {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id_allocation;
+	
 	private Date dateDebut;
 	private Date dateFin;
 	
 	private double prixTotal;
 	
-	@Id
+
 	@ManyToOne
 	@JoinColumn(name = "patientId")
 	private Patient patient;
 	
-	@Id
+
 	@ManyToOne
 	@JoinColumn(name = "litId")
 	private Lit lit;
+
+
+	public PatientLit( Patient patient, Lit lit) {
+		super();
+		this.dateDebut = new Date();
+		this.patient = patient;
+		this.lit = lit;
+	}
+	
+	
 
 }

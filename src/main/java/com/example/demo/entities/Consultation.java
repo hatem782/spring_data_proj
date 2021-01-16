@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -20,18 +22,22 @@ import lombok.NoArgsConstructor;
 //jpa
 @Entity
 
-@IdClass(CleEtrConsultations.class)
+
 public class Consultation {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id_consultation;
 	
 	private Date dateConsultaion;
 	private String description;
 	
-	@Id
+
 	@ManyToOne
 	@JoinColumn(name = "patientId")
 	private Patient patient;
 	
-	@Id
+
 	@ManyToOne
 	@JoinColumn(name = "medecinId")
 	private Medecin medecin;
