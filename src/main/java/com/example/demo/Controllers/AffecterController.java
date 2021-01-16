@@ -84,6 +84,7 @@ public class AffecterController {
 			message="Echec d'affectation , ressayer";
 		}
 		else if(!pf.getEtat_patient() && !lf.Get_etat()) {
+			
 			PatientLit pat_lit = new PatientLit(pf,lf);
 			pf.setEtat_patient(true);
 			lf.setEtat(true);
@@ -96,6 +97,7 @@ public class AffecterController {
 			message="Echec d'affectation , ressayer";
 		}
 		model.addAttribute("message", message);
+		
 		return act1(model);
 	}
 
