@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Patients</h1>
-	<table>
+	<table th:if="${listePatients2.size() > 0}">
 		<tr>
 			<th>CIN</th>
 			<th>Nom</th>
@@ -26,8 +26,10 @@
 			<td th:text = "${p.etat_patient} ? 'admet un lit' : 'n admet pas de lit'" ></td>
 		</tr>
 	</table>
+	<h3 th:if="${listePatients2.size() == 0}">Liste vide</h3>
 		<h1>Lits</h1>
-	<table>
+		
+	<table th:if="${listeLits2.size() > 0}">
 		<tr>
 			<th>Num</th>
 			<th>Chambre</th>
@@ -39,9 +41,10 @@
 			<td th:text = ${l.litId}></td>
 			<td th:text = ${l.chambre.departement}></td>
 			<td th:text = ${l.typeLit.libelle}></td>
-			<td th:text = "${l.etat} ? 'libre' : 'attache' "></td>
+			<td th:text = "${l.etat} ? 'attache' :'non attache' "></td>
 		</tr>
 	</table>
+	<h3 th:if="${listeLits2.size() == 0}">Liste vide</h3>
 	<h1>Affecter </h1>
 	<form action="/affecter" method="Post">
 		<input type="number" name="id_Pat" placeholder="identificateur de Patient">
@@ -49,5 +52,6 @@
 		<input type="submit" name="affecter" value="affecter" >
 	</form>
 	<h3 th:text="${message}"></h3>
+	<a href="/" th:href="@{/home}">Back to Home Page</a>
 </body>
 </html>

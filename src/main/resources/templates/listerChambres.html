@@ -6,9 +6,9 @@
 </head>
 <body>
 	<h1>Chambres</h1>
-	<a th:href="@{/chambres/ajouter}">Ajouter une chambre</a><br>
+	<!-- <a th:href="@{/chambres/ajouter}">Ajouter une chambre</a><br> -->
 	
-	<table>
+	<table th:if="${listeChambres.size() > 0}">
 		<tr>
 			<th>Num</th>
 			<th>Departement</th>
@@ -16,8 +16,10 @@
 		<tr th:each="c : ${listeChambres}">
 			<td th:text = ${c.chambreId}></td>
 			<td th:text = ${c.departement}></td>
-			
+		</tr>
 	</table>
+	<tr><h3 th:if="${listeChambres.size() == 0}">Liste vide</h3></tr>
+	<a href="/" th:href="@{/home}">Retour vers la page d'accueil</a>
 
 </body>
 </html>

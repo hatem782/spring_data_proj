@@ -11,17 +11,21 @@
 	<table>
 		<tr>
 			<th>Num</th>
-			<th>Etat</th>
 			<th>Chambre</th>
 			<th>type</th>
+			<th>prix par jour</th>
+			<th>Etat</th>
 			
 		</tr>
 		<tr th:each="l : ${listeLits}">
 			<td th:text = ${l.litId}></td>
-			<td th:text = ${l.etat}></td>
 			<td th:text = ${l.chambre.departement}></td>
 			<td th:text = ${l.typeLit.libelle}></td>
+			<td th:text = ${l.typeLit.prixType}></td>
+			<td th:text = "${l.etat} ? 'attache' :'non attache' "></td>
 		</tr>
 	</table>
+	<h3 th:if="${listeLits.size() == 0}">Liste vide</h3>
+	<a href="/" th:href="@{/home}">Retour vers la page d'accueil</a>
 </body>
 </html>

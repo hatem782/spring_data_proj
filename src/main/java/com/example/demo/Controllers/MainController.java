@@ -27,6 +27,12 @@ public class MainController {
 		return "signin";
 	}
 	
+	@GetMapping("/home")
+	public String act3() {
+		
+		return "index";
+	}
+	
 	@PostMapping("/home_page")
 	public String act2(@RequestParam(name="login") String login , @RequestParam(name="password") String password ,HttpServletRequest request ) {
 	

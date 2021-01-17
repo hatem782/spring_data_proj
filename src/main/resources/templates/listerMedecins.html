@@ -8,7 +8,7 @@
 	<h1>Medecins</h1>
 	<a th:href="@{/medecins/ajouter}">Ajouter un medecin</a><br>
 	
-	<table>
+	<table th:if="${listeMedecins.size() > 0}">
 		<tr>
 			<th>CIN</th>
 			<th>Nom</th>
@@ -25,9 +25,13 @@
 			<td th:text = ${m.tel}></td>
 			<td th:text = ${m.email}></td>
 			<td th:text = ${m.departement}></td>
-			<td th:text = ${m.specialite}></td>	
+			<td th:text = ${m.specialite}></td>
+			<td><a th:href = "@{/medecins/supp(cin=${m.cin})}">Supprimer medecin</a></td>
 		</tr>
+		
 	</table>
+	<h3 th:if="${listeMedecins.size() == 0}">Liste vide</h3>
+	<a href="/" th:href="@{/home}">Retour vers la page d'accueil</a>
 
 </body>
 </html>

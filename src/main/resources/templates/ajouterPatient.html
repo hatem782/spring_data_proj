@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajouter Patient</title>
+</head>
+<body>
+	<h1>Ajouter Patient</h1>
+	<form action="sauvegarder" method="POST" th:Object="${patient}">
+		CIN <input type="text" name="cin" th:field="*{cin}"><br>
+		NOM <input type="text" name="nom" th:field="*{nom}"><br>
+		PRENOM <input type="text" name="prenom" th:field="*{prenom}"><br>
+		TEL <input type="tel" name="tel" th:field="*{tel}"><br>
+		EMAIL <input type="email" name="email" th:field="*{email}"><br>
+		MALADIE <input type="text" name="maladie" th:field="*{maladie}"><br>
+		ETAT PATION <input type="text" name="etat" th:field="*{etat_patient}">
+		
+		<input type="submit" value="Ajouter">
+	</form>
+</body>
+</html>

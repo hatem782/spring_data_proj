@@ -8,7 +8,7 @@
 	<h1>Patients</h1>
 	<a th:href="@{/patients/ajouter}">Ajouter un patient</a><br>
 	
-	<table>
+	<table th:if="${listePatients.size() > 0}">
 		<tr>
 			<th>CIN</th>
 			<th>Nom</th>
@@ -16,7 +16,7 @@
 			<th>Numero du tel</th>
 			<th>Email</th>
 			<th>Maladie</th>
-			<th>Etat de patient</th>
+			<th>affecter_a_un_lit</th>
 		</tr>
 		<tr th:each="p : ${listePatients}">
 			<td th:text = ${p.cin}></td>
@@ -25,8 +25,11 @@
 			<td th:text = ${p.tel}></td>
 			<td th:text = ${p.email}></td>
 			<td th:text = ${p.maladie}></td>
-			<td th:text = "${p.etat_patient} ? 'admet un lit' : 'n admet pas de lit'" ></td>
+			<td th:text = "${p.etat_patient} ? 'oui' : 'non'"></td>
+			<td><a th:href = "@{/patients/supp(cin=${p.cin})}">Supprimer patient</a></td>	
 		</tr>
 	</table>
+	<h3 th:if="${listePatients.size() == 0}">Liste vide</h3>
+	<a href="/" th:href="@{/home}">Retour vers la page d'accueil</a>
 </body>
 </html>

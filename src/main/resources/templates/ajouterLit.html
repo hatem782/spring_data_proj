@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajouter lit</title>
+</head>
+<body>
+	<h1>Ajouter un lit</h1>
+	<form action="sauvegarder" method="POST" th:Object="${lit}">
+		ETAT <input type="text" name="etat" th:field="*{etat}">
+		TYPE <input type="text" name="type" th:field="*{typeLit}">
+		CHAMBRE <input type="chambre" name="tel" th:field="*{chambre}">
+				
+		<input type="submit" value="Ajouter">
+	</form>
+</body>
+</html>
